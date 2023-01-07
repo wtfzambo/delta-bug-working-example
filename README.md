@@ -57,14 +57,31 @@ The project is configured to run with python>=3.7 <3.8. If you don't have a comp
 
 ```bash
 pyenv install 3.7
-poetry env use 3.7
+pyenv local 3.7
+poetry env use $(pyenv which python)
 ```
 
-Finally run the following commands to complete the setup and get started.
+Run the following commands to complete the setup and set SPARK_HOME.
 
 ```bash
 poetry install --no-root
 poetry shell
+```
+
+Followed by:
+
+```bash
+sparkhome=$(echo 'sc.getConf.get("spark.home")' \
+    | spark-shell \
+    | grep "res0" \
+    | cut -d\  -f4
+) > /dev/null 2>&1
+export SPARK_HOME=$sparkhome
+```
+
+Lastly, open the notebook server:
+
+```bash
 jupyter notebook
 ```
 

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "delta-bug"
+version = "0.1.0"
+description = "Reproduce some bug in Delta Table"
+authors = ["wtfzambo <zambelli.federico@gmail.com>"]
+readme = "README.md"
+packages = [{include = "delta_bug"}]
+
+[tool.poetry.dependencies]
+python = "~3.7"
+pyspark = {version = "3.1.2", extras = ["sql"]}
+notebook = "^6.5.2"
+delta-spark = "1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

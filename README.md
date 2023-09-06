@@ -37,13 +37,13 @@ sdk version
 Finally, install java by running:
 
 ```bash
-sdk install java 11.0.12-open
+sdk install java 11.0.20-amzn
 ```
 
 This should set `JAVA_HOME` by itself, but if it doesn't, run:
 
 ```bash
-sdk use java 11.0.12-open
+sdk use java 11.0.20-amzn
 ```
 
 ### Installing dependencies and setting SPARK_HOME
